@@ -1,1 +1,15 @@
-<p>product-gallery-page works!</p>
+<section class="product-listing">
+
+    <h1>Browse our selection</h1>
+
+    <div *ngIf="products" class="product-listing-nav">
+        <p class="title">{{ products.length }} Products</p>
+    </div>
+
+    <ul class="product-listing-grid">
+
+        <li *ngFor="let product of products" >{{product.name}}</li>
+    
+    </ul>
+
+</section>
