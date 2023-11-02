@@ -1,0 +1,67 @@
+@import './../../../../styles/variables';
+@import './../../../../styles/mixins';
+
+header {
+    /* elements inside won't be affected by scrollbars when you use vw */
+    width: 100vw;
+    margin-bottom: 2rem;
+    height: $header-height;
+
+    .navbar {        
+        
+        transition: top 0.4s ease-out;
+        position: fixed;
+        top: 0px;
+        left: 0;
+        right: 0;
+        z-index: 1;
+    
+        padding: 2rem;
+        text-transform: uppercase;
+        background-color: $grey-50;
+        font-weight: 200;
+        box-shadow: 5px 1px 10px 5px rgba(0, 0, 0, 0.1);
+
+        &.visible {
+            top:0;
+            
+        }
+        &.hidden {
+            top: -$header-height;
+    
+        }
+        ul {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: $spacing-grid * 2;
+            
+            a {
+                
+                svg {
+                    width: 18px;
+                    height: 100%;
+                    -webkit-transition: -webkit-transform .3s ease-out; 
+                    -moz-transition: -moz-transform .3s ease-out; 
+                    -o-transition: -o-transform .3s ease-out; 
+                     transition: transform .3s ease-out; 
+                    &:hover {
+                        -moz-transform: scale(1.15);
+                        -webkit-transform: scale(1.15);
+                        -o-transform: scale(1.15);
+                        transform: scale(1.15);
+                    }
+                }
+                &.cart-link {
+                    color: $p-black;
+                    &:focus-visible {
+
+                        @include focusElement;
+                    }
+                    
+                }
+            }
+        }
+    }
+}
+  
