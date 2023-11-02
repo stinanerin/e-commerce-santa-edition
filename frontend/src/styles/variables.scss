@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700&display=swap"); 
+@import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+$font-poppins: "Poppins";
+$font-lato: "Lato";
+$font-chivo: "Chivo";
+$font-inter: "Inter";
+$font-mulish: "Mulish";
+$font-cormorant: "Cormorant";
+
+
+
+
+
+$p-black: #000;
+$p-white: #fff;
+
+
+$grey-50: #f5f5f5;
+$grey-100: #efefef;
+$grey-200: #dcdcdc;
+$grey-300: #bdbdbd;
+$grey-400: #989898;
+$grey-500: #7c7c7c;
+$grey-600: #656565;
+$grey-700: #525252;
+$grey-800: #464646;
+$grey-900: #3d3d3d;
+$grey-950: #292929;
+
+
+$neutral-50: #f6f5ee;
+
+$livid-50: #f7f8f8;
+$livid-100: #edf0f1;
+$livid-200: #d6ddde;
+$livid-300: #b5c2c4;
+$livid-400: #8da1a3;
+$livid-500: #6f8588;
+$livid-600: #596d70;
+$livid-700: #49595b;
+$livid-800: #3f4b4d;
+$livid-900: #374143;
+$livid-950: #252b2c;
+
+
+$danger-50: #fcf5f4;
+$danger-100: #f7e5e1;
+$danger-200: #f4dad7;
+$danger-300: #eabeb7;
+$danger-400: #de968e;
+$danger-500: #ce6e65;
+$danger-600: #b84a46;
+$danger-700: #9a3736;
+$danger-800: #813031;
+$danger-900: #6f2c2f;
+$danger-950: #3d1416;
+
+$success-50: #f6f7f6;
+$success-100: #dce4de;
+$success-200: #c0cfc4;
+$success-300: #99af9f;
+$success-400: #748d7d;
+$success-500: #5a7263;
+$success-600: #465b4e;
+$success-700: #3b4a41;
+$success-800: #323d37;
+$success-900: #2c352f;
+$success-950: #161d19;
+
+$black-bean-50: #ffc0bf;
+$black-bean-100: #ffafa0;
+$black-bean-200: #ffa26f;
+$black-bean-300: #fca731;
+$black-bean-400: #d4a90c;
+$black-bean-500: #a6a300;
+$black-bean-600: #698000;
+$black-bean-700: #3b5f00;
+$black-bean-800: #1c4100;
+$black-bean-900: #0b2b00;
+$black-bean-950: #021400;
+
+
+
+
+
+// Spacing
+$spacing-xxs: 0.375rem;
+$spacing-xs: 0.5rem;
+$spacing-s: 0.75rem;
+$spacing-m: 1rem;
+$spacing-l: 2rem;
+$spacing-xl: 2.25rem;
+$spacing-xxl: 3rem;
+$spacing-outer: $spacing-s;
+$spacing-grid: $spacing-s;
+$content-width-s: 23.4375rem;
+$content-width-m: 28.5rem;
+$content-width-l: 45rem;
+
+// font size
+$size-body-xs: 0.625rem;
+$size-body-s: 0.8125rem;
+$size-body-m: 1rem;
+$size-body-l: 1.25rem;
+$size-body-xl: 1.5rem;
+$size-quote: clamp(1.50rem, 0.97rem + 2.25vw, 3rem);
+$size-heading-xs: $size-body-m;
+$size-heading-s: $size-body-l;
+$size-heading-m: clamp(1.25rem, 1.16rem + 0.38vw, 1.5rem);
+$size-heading-l: clamp(1.5rem, 1.24rem + 1.13vw, 2.25rem);
+$size-heading-xl: clamp(1.75rem, 1.31rem + 1.88vw, 3rem);
+$size-heading-xxl: clamp(2.25rem, 1.81rem + 1.88vw, 3.5rem);
+$size-heading-xxxl: clamp(2.25rem, 0.49rem + 7.51vw, 7.25rem);
+
+
+$radius-max: 50px;
+
+// Breakpoints - mobile first
+$xs: "min-width: 360px";
+$sm: "min-width: 576px";
+$md: "min-width: 768px";
+$lg: "min-width: 992px";
+$xl: "min-width: 1200px";
+
+
+
+// 
+$primary-body: $font-mulish;
+$primary-heading: $font-cormorant;
+$bg-color: $p-white;
+
+$header-height: 86px;
+
+$text-clr: $p-black;
+
+$primary-50: $black-bean-50;
+$primary-100: $black-bean-100;
+$primary-200: $black-bean-200;
+$primary-300: $black-bean-300;
+$primary-400: $black-bean-400;
+$primary-500: $black-bean-500;
+$primary-600: $black-bean-600;
+$primary-700: $black-bean-700;
+$primary-800: $black-bean-800;
+$primary-900: $black-bean-900;
+$primary-950: $black-bean-950;
+
+//_____________
