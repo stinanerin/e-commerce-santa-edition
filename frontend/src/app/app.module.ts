@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -7,6 +8,7 @@ import { ProductGalleryPageComponent } from './pages/product-gallery-page/produc
 import { ProductDetailPageComponent } from './pages/product-detail-page/product-detail-page.component';
 import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { HeaderComponent } from './components/ui/header/header.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,12 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
     ProductGalleryPageComponent,
     ProductDetailPageComponent,
     CheckoutPageComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

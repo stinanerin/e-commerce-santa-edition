@@ -26,9 +26,11 @@ main {
 
 body {
     font-family: $primary-body, serif;
+    height: calc(100vh - $header-height);
+    background-color: $bg-clr;
 }
 
-h1, h2, h3, h4, h5, h6, .title, select {
+h1, h2, h3, h4, h5, h6, .title {
     font-weight: 200;
     text-transform: uppercase;
     font-family: $primary-heading, 'Times New Roman', Times, serif;
@@ -89,7 +91,7 @@ h1, h2, h3, h4, h5, h6, .title, select {
         right: 0;
         bottom: -6px;
         height: 1px;
-        transition: transform .5s ease-in-out;
+        transition: transform .4s ease-in-out;
         transform: scaleX(0);
         transform-origin: center;
     }
