@@ -1,0 +1,26 @@
+@import 'variables';
+
+@mixin element($btn-color: $text-clr, $btn-bg: transparent, $btn-padding: $spacing-s, $btn-border-width: 1px, $btn-border: $text-clr, $size: $size-body-m) {
+    width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+
+    padding: calc(#{$btn-padding} - #{$btn-border-width}) $btn-padding;
+    outline: $btn-border-width solid $btn-border;
+
+    color: $btn-color;
+    background-color: $btn-bg;
+
+    font-size: $size;
+    line-height: 1.25;
+    text-underline-offset: 0.2em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+@mixin focusElement($clr: $p-black, $shadow: rgba(0, 0, 0, 0.15) ) {
+    outline: 1px solid $clr;
+    box-shadow: 0 0 0 5px $shadow;
+    transition: outline 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+}
