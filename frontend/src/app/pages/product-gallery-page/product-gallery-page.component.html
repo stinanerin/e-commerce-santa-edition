@@ -2,14 +2,14 @@
 
     <h1>Browse our selection</h1>
 
-    <div *ngIf="products" class="product-listing-nav">
-        <p class="title">{{ products.length }} Products</p>
-    </div>
+    <div *ngIf="products">
 
-    <ul class="product-listing-grid">
-
-        <li *ngFor="let product of products" >{{product.name}}</li>
+        <div >
+            <p class="title">{{ products.length }} products</p>
+        </div>
     
-    </ul>
+        <app-products-wrapper [products]="products"></app-products-wrapper>
+        
+    </div>
 
 </section>

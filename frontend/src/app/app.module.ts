@@ -10,6 +10,8 @@ import { ProductDetailPageComponent } from './pages/product-detail-page/product-
 import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { HeaderComponent } from './components/ui/header/header.component';
+import { ProductsWrapperComponent } from './components/products/products-wrapper/products-wrapper.component';
+import { ProductCardComponent } from './components/products/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { HeaderComponent } from './components/ui/header/header.component';
     ProductDetailPageComponent,
     CheckoutPageComponent,
     NotFoundPageComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProductsWrapperComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,

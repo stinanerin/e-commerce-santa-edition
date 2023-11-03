@@ -1,0 +1,18 @@
+@import './../../../../styles/variables';
+
+.product-listing-grid {
+
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 1rem;
+
+    @media($sm) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media($md) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media($xl) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

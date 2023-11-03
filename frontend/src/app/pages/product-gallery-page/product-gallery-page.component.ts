@@ -12,7 +12,7 @@ export class ProductGalleryPageComponent implements OnInit{
   products: Product[] = [];
 
   constructor(
-    private _service: ProductsService
+    private _service: ProductsService,
   ) {}
 
   ngOnInit(): void {
@@ -21,6 +21,7 @@ export class ProductGalleryPageComponent implements OnInit{
 
   getProducts() {
     this._service.getAllProducts().subscribe(data => this.products = data)
+    
   }
 
 }
