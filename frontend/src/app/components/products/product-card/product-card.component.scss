@@ -1,0 +1,81 @@
+@import './../../../../styles/variables';
+@import './../../../../styles/mixins';
+
+.product-card {
+
+    position: relative;
+    &:focus-visible {
+        @include focusElement;
+    }
+    
+    img {
+        width:100%;
+    }
+
+    .content {
+        position:absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 0.75rem;
+        aspect-ratio: 500/500;
+
+        transition: all 400ms ease-in-out;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &:hover, &:focus {
+            background-color: rgba(0, 0, 0, 0.429);
+            color: white;
+            cursor: pointer;
+            .footer {
+                opacity: 0;
+            }
+            .header {
+                opacity: 1;
+            }
+        }
+        .header, .footer {
+            transition: opacity 400ms ease-out;
+        }
+        .header {
+            // Opacity to be able to add transition
+            opacity: 0;
+            .variant-label {
+                margin-bottom: $spacing-xs;
+                border-bottom: 1px solid;
+                width: fit-content;
+            }
+            .variant-list {
+                display: flex;
+                gap: 0 $spacing-s;
+                .sold-out {
+                    opacity: .3;
+                    text-decoration: line-through;
+                }
+            }
+        }
+        .footer {
+            display: flex;
+            align-items: flex-end;
+            gap: 0 $spacing-s;
+
+            .price {
+                // Limited browser support
+                // text-wrap: nowrap;
+                text-align: end;
+                min-width: max-content;
+                font-weight: 400;
+            }
+        }
+
+        .title {
+
+            font-size: $size-heading-xs;
+        }
+        
+    }
+}
