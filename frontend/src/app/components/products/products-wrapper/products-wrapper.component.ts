@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Product } from 'src/app/models/product';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products-wrapper',
@@ -10,6 +11,13 @@ export class ProductsWrapperComponent {
 
   @Input() products: Product[] = []
 
-  constructor(){}
+  constructor(
+    private _router: Router
+  ){}
+
+  navigateToProductDetails(product: Product):void {
+    console.log("product", product)
+    this._router.navigate(["/products", product.id], { state: { data: product } })
+  }
 
 }
