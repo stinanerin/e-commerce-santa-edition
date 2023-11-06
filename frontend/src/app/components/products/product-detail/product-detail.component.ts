@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { Product } from 'src/app/models/product';
+import { CartService } from 'src/app/services/cart/cart.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -21,7 +22,8 @@ export class ProductDetailComponent implements OnInit {
   buttonText: string = 'Add to cart';
 
   constructor(
-      private _formBuilder: FormBuilder,    
+      private _formBuilder: FormBuilder,   
+      private _cartService: CartService, 
   ) {}
 
   ngOnInit() {
@@ -41,8 +43,10 @@ export class ProductDetailComponent implements OnInit {
   }
 
   addToCart() {
-  
+
     console.log(`Added ${this.quantity} ${this.product.name} to the cart.`);
+    this._cartService.addToCart(this.product, this.quantity)
+  
   }
   
 }

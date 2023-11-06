@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { Product } from '../models/product';
+import { Product } from '../../models/product';
 import { map } from 'rxjs/operators';
 
 
-import { PRODUCTS } from "../data/mock-products"
+import { PRODUCTS } from "../../data/mock-products"
 
 
 
