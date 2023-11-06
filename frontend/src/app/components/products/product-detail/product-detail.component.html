@@ -10,22 +10,11 @@
         </header>         
 
         <form [formGroup]="productForm" (ngSubmit)="addToCart()" class="product-form">
-            <div class="qty-controller">
-                <button 
-                    [disabled]="quantity === 1" 
-                    class="btn btn-ghost"  
-                    aria-label="Decrease quantity" 
-                    (click)="decreaseQty()"
-                > - </button>
-                <span>{{ quantity  }}</span>
-                <button 
-                    class="btn btn-ghost"
-                    aria-label="Increase quantity" 
-                    (click)="increaseQty()"
-                > + </button>
-            </div>
+            <app-qty-controller 
+                [(quantity)]="quantity" 
+            ></app-qty-controller>
             <div>
-              <button [disabled]="!productForm.valid" type="submit" class="btn btn-submit">{{ buttonText}}</button>
+              <button type="submit" class="btn">{{ buttonText }}</button>
             </div>
         </form>
 

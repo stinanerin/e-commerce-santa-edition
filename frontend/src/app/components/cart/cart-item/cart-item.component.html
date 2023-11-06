@@ -1,0 +1,24 @@
+<li class="cart-item" *ngIf="cartItem">
+    <div>
+        <div class="cart-item-content">
+            <div class="cart-item-image">
+                <img src="/assets/images/tree.png" [alt]="cartItem.product.name">
+            </div>
+            <div class="cart-item-title">
+                <p>
+                    <a class="link" routerLink="/products/{{cartItem.product.id}}" >{{ cartItem.product.name }}</a>
+                </p>
+            </div>
+            <div class="cart-item-price">
+                <p>{{ cartItem.totalPrice }} usd</p>
+            </div>
+        </div>
+    </div>
+    <div class="cart-item-footer">
+        <app-qty-controller 
+            [quantity]="cartItem.quantity" 
+            (quantityChange)="updateCartQtyStorage($event)"
+
+        ></app-qty-controller>
+    </div>
+</li>

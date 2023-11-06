@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup} from '@angular/forms';
 
 import { Product } from 'src/app/models/product';
 import { CartService } from 'src/app/services/cart/cart.service';
@@ -14,11 +14,9 @@ import { CartService } from 'src/app/services/cart/cart.service';
 export class ProductDetailComponent implements OnInit {
   
   @Input() product!: Product;
-
+  
   productForm!: FormGroup;
-
   quantity: number = 1;
-
   buttonText: string = 'Add to cart';
 
   constructor(
@@ -28,25 +26,19 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit() {
     this.productForm = this._formBuilder.group({
-      // todo
+      // initialize the form control with the initial value
     });
   }
+  
 
-  decreaseQty() {
-    if (this.quantity > 1) {
-      this.quantity--;
-    }
-  }
-
-  increaseQty() {
-    this.quantity++;
-  }
+  //todo - non repetitive
 
   addToCart() {
 
     console.log(`Added ${this.quantity} ${this.product.name} to the cart.`);
     this._cartService.addToCart(this.product, this.quantity)
-  
+    this.buttonText = "Added"
+    this.productForm.reset()
   }
   
 }
