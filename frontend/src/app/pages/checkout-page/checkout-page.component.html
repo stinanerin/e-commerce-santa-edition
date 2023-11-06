@@ -1,1 +1,19 @@
-<p>checkout-page works!</p>
+<section class="checkout-wrapper">
+
+<!--  todo: message page - continue shopping noi items in cart -->
+
+    <div *ngIf="cart.items.length">
+
+        <header>
+            <h1>Cart</h1>
+            <p >{{ cart.totalItems }} items</p>
+        </header>
+
+        <ul>
+            <app-cart-item *ngFor="let item of cart.items" [cartItem]="item"></app-cart-item>
+            
+        </ul>
+
+    </div> 
+
+</section>

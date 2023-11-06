@@ -56,23 +56,7 @@
             }
         }
 
-        .variants {
-            margin-bottom: $spacing-xl;
-            .variant-label {
-                text-transform: uppercase;
-                margin-bottom: 1em;
-
-            }
-            .variant-list {
-                display: flex;
-                gap: 0 $spacing-s;
-                .sold-out {
-                    opacity: .3;
-                    text-decoration: line-through;
-                }
-            }
-        }
-    
+       
 
         .shipping {
             p {
@@ -101,18 +85,7 @@
             > * {
                 flex: 1 0 calc(50% - $spacing-grid);
             }
-            .qty-controller {
-                display: flex;
-                align-items: center;
-                gap: $spacing-grid;
-                
-                padding: calc(#{$spacing-s} - 1px) $spacing-s;
-                
-                > * {
-                    text-align: center;
-                    flex-basis: calc(50% - $spacing-grid);
-                }
-            }
+            
         }
     }
 }

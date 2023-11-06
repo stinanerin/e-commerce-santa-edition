@@ -1,0 +1,17 @@
+@import './../../../styles/variables';
+
+
+.checkout-wrapper {
+    font-weight: 200;
+    margin: 0 auto;
+    flex-grow: 1;
+    max-width: 632px;
+    header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+    }
+    
+}
