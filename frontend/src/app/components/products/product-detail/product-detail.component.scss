@@ -1,0 +1,119 @@
+@import './../../../../styles/variables';
+
+.product-detail {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-grid;
+    .img-wrapper {
+        align-self: center;
+        @media($md) {
+            max-width: 90%;
+        }
+        @media($lg) {
+            align-self: flex-start;
+            max-width: 100%;
+        }
+        img {
+            max-width: 100%;  
+        }
+    }
+    @media($lg) {
+        flex-direction: row;
+        > * {
+            background-color: rgba(255, 192, 203, 0.303);
+            flex-basis: 50%;
+        }
+                
+    }
+    .content {
+        font-weight: 200;
+        text-transform: uppercase;
+
+        p, * p {
+            text-transform: none; 
+        }
+
+        @media($sm) {
+            padding: clamp($spacing-outer, 8.33vw - $spacing-outer, 7.5rem);
+        }
+        @media($lg) {
+            padding: clamp($spacing-outer, 6.33vw  - $spacing-outer, 5.5rem);
+        }
+        @media($lg) {
+            padding: clamp($spacing-outer, 8.33vw - $spacing-outer, 7.5rem);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: $spacing-xl;
+            .title {
+                font-size: $size-heading-s;
+                @media($md) {
+                    font-size: $size-heading-m;
+                }
+            }
+        }
+
+        .variants {
+            margin-bottom: $spacing-xl;
+            .variant-label {
+                text-transform: uppercase;
+                margin-bottom: 1em;
+
+            }
+            .variant-list {
+                display: flex;
+                gap: 0 $spacing-s;
+                .sold-out {
+                    opacity: .3;
+                    text-decoration: line-through;
+                }
+            }
+        }
+    
+
+        .shipping {
+            p {
+                margin-bottom: $spacing-s;
+            }
+        }
+
+        .product-form {
+            display: flex;
+            flex-direction: column;
+            gap: $spacing-grid * 2;
+            font-weight: 200;
+            text-transform: uppercase;
+            margin-bottom: $spacing-xl;
+            height: fit-content;
+            max-width: 100%;
+            
+            @media($sm) {
+                flex-direction: row;
+                align-items: flex-end;
+            }
+
+            .form-label {
+                padding-bottom: $spacing-s;
+            }
+            > * {
+                flex: 1 0 calc(50% - $spacing-grid);
+            }
+            .qty-controller {
+                display: flex;
+                align-items: center;
+                gap: $spacing-grid;
+                
+                padding: calc(#{$spacing-s} - 1px) $spacing-s;
+                
+                > * {
+                    text-align: center;
+                    flex-basis: calc(50% - $spacing-grid);
+                }
+            }
+        }
+    }
+}
+

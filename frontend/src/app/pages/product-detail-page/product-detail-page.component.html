@@ -1,1 +1,8 @@
-<p>product-detail-page works!</p>
+
+<!-- todo! Add page not found if product or product data is not found -->
+
+<section *ngIf="product">
+
+    <app-product-detail [product]="product"></app-product-detail>
+
+</section>
