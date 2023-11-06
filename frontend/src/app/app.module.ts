@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +13,7 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 import { HeaderComponent } from './components/ui/header/header.component';
 import { ProductsWrapperComponent } from './components/products/products-wrapper/products-wrapper.component';
 import { ProductCardComponent } from './components/products/product-card/product-card.component';
+import { ProductDetailComponent } from './components/products/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -22,9 +24,12 @@ import { ProductCardComponent } from './components/products/product-card/product
     NotFoundPageComponent,
     HeaderComponent,
     ProductsWrapperComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    ProductDetailComponent
   ],
   imports: [
+    CommonModule,
+    ReactiveFormsModule, 
     BrowserModule,
     AppRoutingModule,
     HttpClientModule

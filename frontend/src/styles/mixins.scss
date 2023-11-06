@@ -20,7 +20,7 @@
 
 @mixin focusElement($clr: $p-black, $shadow: rgba(0, 0, 0, 0.15) ) {
     outline: 1px solid $clr;
-    box-shadow: 0 0 0 5px $shadow;
+    box-shadow: 0 0 2px 5px $shadow;
     transition: outline 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
 }
