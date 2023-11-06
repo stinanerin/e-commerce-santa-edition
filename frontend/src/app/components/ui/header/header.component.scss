@@ -37,6 +37,7 @@ header {
             gap: $spacing-grid * 2;
             
             a {
+                min-height: 100%;
                 
                 svg {
                     width: 18px;

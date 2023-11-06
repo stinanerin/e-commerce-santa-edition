@@ -8,7 +8,7 @@ import { Component, HostListener } from '@angular/core';
 
 export class HeaderComponent  {
 
-  navbarFixed: boolean = false;
+  navbarFixed: boolean = true;
   prevScrollPos: number = 0;
 
   @HostListener("window:scroll", ["$event"]) onScroll() {
