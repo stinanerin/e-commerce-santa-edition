@@ -16,6 +16,7 @@ import { ProductCardComponent } from './components/products/product-card/product
 import { ProductDetailComponent } from './components/products/product-detail/product-detail.component';
 import { CartItemComponent } from './components/cart/cart-item/cart-item.component';
 import { QtyControllerComponent } from './components/ui/qty-controller/qty-controller.component';
+import { CartSummaryComponent } from './components/cart/cart-summary/cart-summary.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { QtyControllerComponent } from './components/ui/qty-controller/qty-contr
     ProductCardComponent,
     ProductDetailComponent,
     CartItemComponent,
-    QtyControllerComponent
+    QtyControllerComponent,
+    CartSummaryComponent
   ],
   imports: [
     CommonModule,
