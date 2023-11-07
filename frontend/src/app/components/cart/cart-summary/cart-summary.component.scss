@@ -1,0 +1,25 @@
+@import './../../../../styles/variables';
+
+div {
+    border-top: 1px solid $p-black;
+    padding-top: $spacing-xl;
+    .cart-summary {
+        display: flex;
+        padding: $spacing-m;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: rgba(184, 184, 184, 0.146);
+        font-size: $size-body-m;
+        margin-bottom: $spacing-xl;
+        dt, dd {
+            flex-basis: 50%;
+        }
+        dt:first-child {
+            margin-bottom: $spacing-xs;
+        }
+        dd {
+            text-align: end;
+        }
+    }
+}
