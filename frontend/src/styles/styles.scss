@@ -28,13 +28,13 @@ body {
     font-family: $primary-body, serif;
     height: calc(100vh - $header-height);
     background-color: $bg-clr;
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6, .title {
     font-weight: 200;
     text-transform: uppercase;
     font-family: $primary-heading, 'Times New Roman', Times, serif;
-
 }
 
 
