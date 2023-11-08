@@ -87,7 +87,7 @@ export const PRODUCTS = [
       "currency": "USD",
       "image": "/images/xxx.png",
       "color": "White",
-      "stock": 9
+      "stock": 0
     },
     {
       "id": 10,
