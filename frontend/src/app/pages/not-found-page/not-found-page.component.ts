@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-not-found-page',
@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
 })
 
 export class NotFoundPageComponent {
+
+  @Input() notFoundMessage: string = " we were unable to find the page you were looking for."
 
 }

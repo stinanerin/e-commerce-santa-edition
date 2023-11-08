@@ -1,0 +1,26 @@
+@import './../../../styles/variables';
+
+.not-found-wrapper {
+    text-align: center;
+    h1 {
+        font-size: $size-heading-5xl;
+        margin-bottom: 0.5em;
+        font-weight: bolder;
+        color: $grey-900;
+        text-shadow: 
+            1rem 1rem 0.7rem $grey-300, 
+            1rem 1rem 0.7rem whitesmoke;
+    }
+    
+    h2 {
+        font-size: $size-body-l;
+        font-weight: bold;
+        margin: 2rem 0 3rem;
+    }
+    a {
+        width: fit-content ;
+        padding-left: $spacing-xl;
+        padding-right: $spacing-xl;
+    }
+    
+}
