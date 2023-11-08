@@ -113,8 +113,10 @@ $size-heading-s: $size-body-l;
 $size-heading-m: clamp(1.25rem, 1.16rem + 0.38vw, 1.5rem);
 $size-heading-l: clamp(1.5rem, 1.24rem + 1.13vw, 2.25rem);
 $size-heading-xl: clamp(1.75rem, 1.31rem + 1.88vw, 3rem);
-$size-heading-xxl: clamp(2.25rem, 1.81rem + 1.88vw, 3.5rem);
-$size-heading-xxxl: clamp(2.25rem, 0.49rem + 7.51vw, 7.25rem);
+$size-heading-2xl: clamp(2.25rem, 1.81rem + 1.88vw, 3.5rem);
+$size-heading-3xl: clamp(2.5rem, 2rem + 7.51vw, 7.25rem);
+$size-heading-4xl: clamp(3rem, 2.25rem + 9vw, 14.25rem);
+$size-heading-5xl: clamp(4rem, 3rem + 12vw, 20.25rem);
 
 
 $radius-max: 50px;
