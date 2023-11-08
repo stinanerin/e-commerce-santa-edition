@@ -1,6 +1,8 @@
 
 <!-- todo! Add page not found if product or product data is not found -->
 
+<app-not-found-page *ngIf="!product" notFoundMessage=" we were unable to find the product you were looking for." ></app-not-found-page>
+
 <section *ngIf="product">
 
     <app-product-detail [product]="product"></app-product-detail>
