@@ -12,8 +12,8 @@ Grade:
 -   try to download and start project
 -   error
     error handlinga
--   remove unsued tests
 -   make sure applicaiotn works all screen sizes
+-   make ReadMe
 
 Not for grade:
 
