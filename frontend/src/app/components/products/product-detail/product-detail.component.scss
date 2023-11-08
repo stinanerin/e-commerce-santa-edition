@@ -20,10 +20,9 @@
     @media($lg) {
         flex-direction: row;
         > * {
-            background-color: rgba(255, 192, 203, 0.303);
+            // background-color: rgba(255, 192, 203, 0.303);
             flex-basis: 50%;
-        }
-                
+        }     
     }
     .content {
         font-weight: 200;
@@ -55,8 +54,6 @@
                 }
             }
         }
-
-       
 
         .shipping {
             p {

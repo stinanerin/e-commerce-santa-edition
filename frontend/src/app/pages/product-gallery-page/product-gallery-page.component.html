@@ -1,12 +1,12 @@
 <section class="product-listing">
 
-    <h1>Browse our selection</h1>
+    <div class="gallery-header" >
+        <h1>Browse our selection</h1>
+        <p *ngIf="products" class="title"> <span>{{ products.length }}</span> products</p>
+    </div>
 
     <div *ngIf="products">
 
-        <div >
-            <p class="title">{{ products.length }} products</p>
-        </div>
     
         <app-products-wrapper [products]="products"></app-products-wrapper>
         
