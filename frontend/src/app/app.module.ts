@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './routing/app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductGalleryPageComponent } from './pages/product-gallery-page/product-gallery-page.component';
 import { ProductDetailPageComponent } from './pages/product-detail-page/product-detail-page.component';
