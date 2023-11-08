@@ -1,29 +1,46 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/ui/header/header.component';
 
+// Describe the test suite for the component
 describe('AppComponent', () => {
+  let fixture: ComponentFixture<AppComponent>;
+  let appComponent: AppComponent;
+  let compiled: HTMLElement;
+
+  // Set up the testing environment before each test
   beforeEach(() => TestBed.configureTestingModule({
+    // Import necessary testing modules
     imports: [RouterTestingModule],
-    declarations: [AppComponent]
+    // Declare the components used in the testing module
+    declarations: [AppComponent, HeaderComponent]
   }));
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'frontend'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('frontend');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  beforeEach(() => {
+    // Create a fixture for the component under test
+    fixture = TestBed.createComponent(AppComponent);
+    // Get component instance
+    appComponent = fixture.componentInstance;
+    compiled = fixture.nativeElement;
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('frontend app is running!');
+
+  })
+
+  // Test case
+  it('should create the app', () => {
+
+    // Check if component is created
+    expect(appComponent).toBeTruthy(); 
+
   });
+
+  it('should contain a <main> tag', () => {
+    expect(compiled.querySelector('main')).toBeTruthy();
+  });
+
+  it("should contain the <app-header> component", () => {
+    expect(compiled.querySelector('app-header')).toBeTruthy()
+  })
+
 });
