@@ -31,10 +31,19 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6, .title {
+h1, h2, h3, h4, h5, h6, .title, .secondary-title  {
     font-weight: 200;
     text-transform: uppercase;
     font-family: $primary-heading, 'Times New Roman', Times, serif;
+    margin-bottom: 1em;
+}
+
+.title {
+    font-size: $size-heading-m;
+}
+
+.secondary-title {
+    font-size: $size-heading-s;
 }
 
 

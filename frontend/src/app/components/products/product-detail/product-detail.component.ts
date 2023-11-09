@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup} from '@angular/forms';
+import { CartItem } from 'src/app/models/cartItem';
 
 import { Product } from 'src/app/models/product';
 import { CartService } from 'src/app/services/cart/cart.service';
@@ -18,27 +19,76 @@ export class ProductDetailComponent implements OnInit {
   productForm!: FormGroup;
   quantity: number = 1;
   buttonText: string = 'Add to cart';
+  isFieldsetDisabled: boolean = false;
+  private _productIsInCart: CartItem | undefined;
 
+  
   constructor(
       private _formBuilder: FormBuilder,   
       private _cartService: CartService, 
   ) {}
 
   ngOnInit() {
+    
     this.productForm = this._formBuilder.group({
       // initialize the form control with the initial value
     });
+    
+    this.checkIsProductInCart()
+    this.checkFieldsetDisabled();
+
+  }
+
+  get totalBookedQty(): number {
+    if (this.productIsInCart) {
+      
+      return this.quantity + this.productIsInCart.quantity;
+    } else {
+
+      return this.quantity;
+    }
+  }
+
+  get productIsInCart(): CartItem | undefined {
+    return this._productIsInCart;
+  }
+
+  set productIsInCart(cartItem: CartItem | undefined) {
+    this._productIsInCart = cartItem;
+  }
+
+  checkIsProductInCart() {
+    this.productIsInCart = this._cartService.getCartItemById(this.product.id);
+  }
+
+  checkFieldsetDisabled() {
+    console.log("checkFieldsetDisabled")
+    this.checkIsProductInCart()
+    if (this.productIsInCart) {
+      console.log("productIsInCart")
+      this.isFieldsetDisabled = this.totalBookedQty >= this.product.stock;
+      
+    } else {
+      console.log("else: false")
+      this.isFieldsetDisabled = false;
+    }
   }
   
 
-  //todo - non repetitive
-
   addToCart() {
+    if (this.totalBookedQty > this.product.stock) {
+      return;
+    }
 
-    console.log(`Added ${this.quantity} ${this.product.name} to the cart.`);
     this._cartService.addToCart(this.product, this.quantity)
     this.buttonText = "Added"
-    this.productForm.reset()
+
+    this.checkFieldsetDisabled();
+
+  }
+
+  updateQuantity(value: number) {
+    this.quantity = value;
   }
   
 }

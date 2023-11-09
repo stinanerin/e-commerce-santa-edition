@@ -9,19 +9,22 @@
             <p class="price ">{{ product.price }} USD</p>
         </header>         
 
-        <form [formGroup]="productForm" (ngSubmit)="addToCart()" class="product-form">
-            <app-qty-controller 
-                [(quantity)]="quantity" 
-            ></app-qty-controller>
+        <form [formGroup]="productForm" (ngSubmit)="addToCart()" class="product-form" >
+            <fieldset [disabled]="isFieldsetDisabled" >
             <div>
-              <button type="submit" class="btn">{{ buttonText }}</button>
+                <app-qty-controller
+                    [quantity]="quantity"
+                    [stock]="(product.stock - totalBookedQty)"
+                    (quantityChange)="updateQuantity($event)"
+
+                ></app-qty-controller>
+                <p class="available-stock" [class]="!product.stock ? 'sold-out' : '' " >Available stock {{ product.stock }}</p>
             </div>
+              <button type="submit" class="btn" >{{ buttonText }}</button>
+            </fieldset>
         </form>
-
-        <!-- <p>Form value: {{ productForm.value | json }}</p> -->
-
         <div class="shipping">
-            <h2 class="secondary-heading">Shipping</h2>
+            <h2 class="secondary-title">Shipping</h2>
 
             <p>All Taxes & Duties included</p>
             <p>Estimated delivery time 1-3 business days</p>

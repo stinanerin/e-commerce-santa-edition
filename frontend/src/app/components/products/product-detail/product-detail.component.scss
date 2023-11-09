@@ -48,6 +48,7 @@
             align-items: flex-end;
             margin-bottom: $spacing-xl;
             .title {
+                margin-bottom: 0;
                 font-size: $size-heading-s;
                 @media($md) {
                     font-size: $size-heading-m;
@@ -62,25 +63,44 @@
         }
 
         .product-form {
-            display: flex;
-            flex-direction: column;
-            gap: $spacing-grid * 2;
-            font-weight: 200;
-            text-transform: uppercase;
-            margin-bottom: $spacing-xl;
-            height: fit-content;
-            max-width: 100%;
-            
-            @media($sm) {
-                flex-direction: row;
-                align-items: flex-end;
-            }
 
-            .form-label {
-                padding-bottom: $spacing-s;
-            }
-            > * {
-                flex: 1 0 calc(50% - $spacing-grid);
+            fieldset {
+                all: unset;
+
+                // background-color: rgba(255, 192, 203, 0.277);
+                display: flex;
+                flex-direction: column;
+                gap: $spacing-grid * 2;
+    
+                height: fit-content;
+                max-width: 100%;
+    
+                font-weight: 200;
+                text-transform: uppercase;
+                margin-bottom: $spacing-xl;
+                
+                @media($sm) {
+                    flex-direction: row;
+                    align-items: center;
+                }
+    
+                > * {
+                    flex: 1 0 calc(50% - $spacing-grid);
+                }
+    
+                .available-stock {
+                    text-align: center;
+                    font-size: $size-body-s;
+                    text-transform: uppercase;
+                    color: $grey-500;
+                    margin-top: $spacing-s;
+                    &.sold-out {
+                        text-decoration: line-through;
+                    }
+                }
+                &:disabled {
+                    opacity: 0.5 !important;
+                }
             }
             
         }

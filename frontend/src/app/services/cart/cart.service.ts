@@ -36,6 +36,8 @@ export class CartService {
       this.cart.items.push(newCartItem)
     }
 
+    console.log("done adding to cart")
+
     this.setCartToLocalStorage()
 
   }
@@ -72,6 +74,8 @@ export class CartService {
     localStorage.setItem("Cart", cartJson)
 
     this.cartSubject.next(this.cart)
+    console.log("done setting to local storage")
+
   }
 
   // private: The method is no accessible otuside of the class
@@ -81,10 +85,24 @@ export class CartService {
 
     if (cartJson) {
       const parsedCart = JSON.parse(cartJson);
-      parsedCart.items = parsedCart.items.map((item: any) => new CartItem(item.product, item.quantity));
+      parsedCart.items = parsedCart.items.map((item: any) =>  new CartItem(item.product, item._quantity));
+      
       return parsedCart;
     } else {
         return new Cart();    
     }
+  }
+
+  getCartItemById(id: number) {
+    const cartJson = localStorage.getItem("Cart")
+
+    if (cartJson) {
+        const parsedCart = JSON.parse(cartJson);
+        const cartItem = parsedCart.items.find((i: CartItem) => i.product.id === id)
+
+        if(!cartItem) return;
+        return  new CartItem(cartItem.product, cartItem._quantity)
+    }
+    return undefined
   }
 }

@@ -1,16 +1,19 @@
 <div class="qty-controller">
     <button 
         type="button"
-        [disabled]="quantity === 1" 
         class="btn btn-ghost"  
         aria-label="Decrease quantity" 
         (click)="decreaseQty()"
+        [disabled]="quantity <= 1" 
     > - </button>
     <span>{{ quantity  }}</span>
     <button 
         type="button"
         class="btn btn-ghost"
+        
         aria-label="Increase quantity" 
         (click)="increaseQty()"
+        [disabled]="stock === 0" 
+
     > + </button>
 </div>
