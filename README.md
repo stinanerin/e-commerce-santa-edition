@@ -33,3 +33,7 @@ This will start the Node.js Express server. The backend server will be running a
 ## Running Tests
 
 The project uses Karma for testing. To run the tests, run `ng test` within the `frontend` directory.
+
+## Images
+
+Images generated with [https://www.craiyon.com/](https://www.craiyon.com/)
