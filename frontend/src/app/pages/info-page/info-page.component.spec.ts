@@ -29,7 +29,7 @@ describe('InfoPageComponent', () => {
 
   })
 
-  it('should create the not-found page', () => {
+  it('should create the info page', () => {
 
     // Check if component is created
     expect(InfoComponent).toBeTruthy(); 
@@ -50,5 +50,11 @@ describe('InfoPageComponent', () => {
     expect(link).toBeTruthy()    
 
   })
+
+
+  it('should have certain properties', () => {
+    expect(InfoComponent.message).toBeDefined(); 
+    expect(InfoComponent.CTA).toBeDefined(); 
+  });
 
 });
