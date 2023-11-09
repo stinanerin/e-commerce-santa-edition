@@ -11,15 +11,9 @@
             </div>
             <div class="cart-item-price">
                 <p>{{ cartItem.totalPrice }} usd</p>
+                <p>QTY {{ cartItem.quantity }}</p>
             </div>
         </div>
     </div>
-    <div class="cart-item-footer">
-        <app-qty-controller 
-            [quantity]="cartItem.quantity" 
-            [stock]="cartItem.product.stock" 
-            (quantityChange)="updateCartQtyStorage($event)"
-
-        ></app-qty-controller>
-    </div>
+    
 </li>

@@ -28,6 +28,10 @@
         .cart-item-price {
             min-width: max-content;
             text-transform: uppercase;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-end;
         }
     }
     .cart-item-footer {
