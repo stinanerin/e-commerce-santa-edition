@@ -18,5 +18,7 @@ app.use("/api/v1", productRouter);
 const PORT = 3000;
 
 app.listen(PORT, () =>
-    console.log(`Server accessible through http://localhost:${PORT}`)
+    console.log(
+        `Server accessible through http://localhost:${PORT}/api/v1/products`
+    )
 );

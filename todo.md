@@ -8,12 +8,8 @@ Grade:
 
 -   connect frontend to backend again
 -   try to download and start project
+-   update all products
+-   loading state
 -   error
     error handlinga
 -   control all tests still pass
-
-Not for grade:
-
--   do not allow user to add more items than available stock? rember you can add in both detial and cart view
--   make number of cart items visible in header
--
