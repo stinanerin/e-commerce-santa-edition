@@ -15,8 +15,7 @@ export class CartItemComponent {
 
   constructor(
     private _cartService: CartService,
-  ) {
-  }
+  ) {}
 
   updateCartQtyStorage(newQuantity: number): void {
     const parsedQuantity = parseInt(newQuantity.toString(), 10);
@@ -27,7 +26,11 @@ export class CartItemComponent {
     } else {
       console.error("Invalid quantity:", newQuantity);
     }
-    
+
+  }
+
+  removeCartItem() {
+    this._cartService.removeFromCart(this.cartItem.product.id)
   }
 
 }

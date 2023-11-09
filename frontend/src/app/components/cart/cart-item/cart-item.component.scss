@@ -26,8 +26,16 @@
             }
         }
         .cart-item-price {
+            background-color: rgba(255, 192, 203, 0.287);
             min-width: max-content;
             text-transform: uppercase;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-end;
+            * {
+                min-width: max-content;
+            }
         }
     }
     .cart-item-footer {

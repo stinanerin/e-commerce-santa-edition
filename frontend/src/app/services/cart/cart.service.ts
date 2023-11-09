@@ -93,6 +93,15 @@ export class CartService {
     }
   }
 
+  removeFromCart(id: number): void {
+    this.cart = this.getCartFromLocalStorage()
+
+    this.cart.items = this.cart.items
+      .filter(item => item.product.id != id);
+
+    this.setCartToLocalStorage();
+  }
+
   getCartItemById(id: number) {
     const cartJson = localStorage.getItem("Cart")
 
