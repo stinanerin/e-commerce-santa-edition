@@ -16,7 +16,6 @@ export class ProductsWrapperComponent {
   ){}
 
   navigateToProductDetails(product: Product):void {
-    console.log("product", product)
     this._router.navigate(["/products", product.id], { state: { data: product } })
   }
 
