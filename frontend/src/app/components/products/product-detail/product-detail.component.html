@@ -10,7 +10,7 @@
         </header>         
 
         <form [formGroup]="productForm" (ngSubmit)="addToCart()" class="product-form" >
-            <fieldset [disabled]="productIsInCart && totalBookedQty >= product.stock || totalBookedQty > product.stock" >
+            <fieldset [disabled]="isFieldsetDisabled" >
             <div>
                 <app-qty-controller
                     [quantity]="quantity"

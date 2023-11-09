@@ -1,12 +1,9 @@
 import { Product } from "./product";
-// todo : getters and setters
 export class CartItem {
     private _totalPrice: number;
     
     // Add accessmodifier to remove repetetive code
     constructor(readonly product: Product, private _quantity: number = 1) {
-        console.log("product", product)
-        console.log("_quantity", _quantity)
         this.product = product;
         this._quantity = _quantity;
         this._totalPrice = this._quantity * this.product.price;

@@ -36,6 +36,8 @@ export class CartService {
       this.cart.items.push(newCartItem)
     }
 
+    console.log("done adding to cart")
+
     this.setCartToLocalStorage()
 
   }
@@ -72,6 +74,8 @@ export class CartService {
     localStorage.setItem("Cart", cartJson)
 
     this.cartSubject.next(this.cart)
+    console.log("done setting to local storage")
+
   }
 
   // private: The method is no accessible otuside of the class
