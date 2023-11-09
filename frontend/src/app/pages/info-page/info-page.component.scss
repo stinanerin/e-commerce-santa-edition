@@ -1,0 +1,20 @@
+
+@import './../../../styles/variables';
+
+.info-wrapper {
+    background-color: $grey-50;
+
+    max-width: 100%;
+    height: calc(100vh - 116px - $spacing-xxl * 2 - $spacing-l );
+    padding: $spacing-xxl;
+    margin-bottom: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+        font-size: $size-heading-l;
+    }
+}

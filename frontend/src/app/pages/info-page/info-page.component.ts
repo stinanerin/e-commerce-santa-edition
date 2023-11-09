@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-info-page',
@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
 })
 export class InfoPageComponent {
   
+  @Input() message: string = "Something went wrong"
+  @Input() CTA: string = "Continue shopping"
 
 }

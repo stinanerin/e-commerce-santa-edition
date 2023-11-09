@@ -1,6 +1,7 @@
 <section class="checkout-wrapper">
 
-<!--  todo: message page - continue shopping noi items in cart -->
+    <app-info-page *ngIf="!cart.items.length"  message="Your cart is empty" ></app-info-page>
+
 
     <div *ngIf="cart.items.length">
 
