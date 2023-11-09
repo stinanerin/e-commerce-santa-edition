@@ -1,10 +1,10 @@
 import express from "express";
-import dotenv from "dotenv";
+// import dotenv from "dotenv";
 import cors from "cors";
 
 import productRouter from "./routes/products-routes.mjs";
 
-dotenv.config({ path: "./config/.env" });
+// dotenv.config({ path: "./config/.env" });
 const app = express();
 
 /* ******************* Middleware******************* */
@@ -15,7 +15,7 @@ app.use("/api/v1", productRouter);
 
 /* ************************************************* */
 
-const PORT = 3000 | process.env.PORT;
+const PORT = 3000;
 
 app.listen(PORT, () =>
     console.log(`Server accessible through http://localhost:${PORT}`)

@@ -4,10 +4,8 @@ import { Observable, of } from 'rxjs';
 import { Product } from '../../models/product';
 import { map } from 'rxjs/operators';
 
-
 import { PRODUCTS } from "../../data/mock-products"
-
-
+import { environment } from '../../../environments/environment';
 
 /*
   Decorate our class with @Injectable
@@ -22,43 +20,45 @@ import { PRODUCTS } from "../../data/mock-products"
 
 export class ProductsService {
 
-  baseUrl: string = "http://localhost:3001/api/v1"
+  baseUrl: string = environment.apiUrl; 
 
   constructor(private _http: HttpClient) { }
 
-  // getAllProducts(): Observable<Product[]> {
-  //   return this._http.get<any>(this.baseUrl + "/products").pipe(
-  //     map(response => {
-  //       if (response.status === "Success" && Array.isArray(response.data)) {
-  //         return response.data as Product[];
-  //       } else {
-  //         throw new Error("Invalid response format");
-  //       }
-  //     })
-  //   );
-  // }
-
-  // getProductById(id: string): Observable<Product> {
-  //   return this._http.get<any>(this.baseUrl + `/products/${id}`).pipe(
-  //     map(response => {
-  //       if (response.status === "Success" && response.data) {
-  //         return response.data as Product;
-  //       } else {
-  //         throw new Error("Invalid response format");
-  //       }
-  //     })
-  //   );
-  // }
-
   getAllProducts(): Observable<Product[]> {
-    // Genom of() keyword blir min lista av kosntanter asynchron
-    return of(PRODUCTS)
+    if (environment.useApi) {
+      return this._http.get<any>(this.baseUrl + "/products").pipe(
+            map(response => {
+              if (response.status === "Success" && Array.isArray(response.data)) {
+                return response.data as Product[];
+              } else {
+                throw new Error("Invalid response format");
+              }
+            })
+          );
+    } else {
+      // Genom of() keyword blir min lista av kosntanter asynchron
+      return of(PRODUCTS)
+
+    }
   }
   getProductById(id: number): Observable<Product> {
-    const product = PRODUCTS.find((p: Product) => p.id === id)
 
-    if(!product) throw new Error(`Product with id ${id} not found`)
-    return of(product)
+    if (environment.useApi) {
+
+      return this._http.get<any>(this.baseUrl + `/products/${id}`).pipe(
+        map(response => {
+          if (response.status === "Success" && response.data) {
+            return response.data as Product;
+          } else {
+            throw new Error("Invalid response format");
+          }
+        })
+      );
+    } else {
+      const product = PRODUCTS.find((p: Product) => p.id === id)
+  
+      if(!product) throw new Error(`Product with id ${id} not found`)
+      return of(product)
+    }
   }
-
 }

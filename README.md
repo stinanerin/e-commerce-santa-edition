@@ -28,7 +28,7 @@ View the live applicaiton at `http://localhost:4200/`
 
 Inside the `backend` directory, run `npm start`.
 
-This will start the Node.js Express server. The backend server will be running at `http://localhost:3000/`.
+This will start the Node.js Express server. The backend server will be running at `http://localhost:3000/api/v1/products`.
 
 ## Running Tests
 

@@ -10,8 +10,7 @@ Grade:
 -   try to download and start project
 -   error
     error handlinga
--   make sure applicaiotn works all screen sizes
--   make ReadMe
+-   control all tests still pass
 
 Not for grade:
 
