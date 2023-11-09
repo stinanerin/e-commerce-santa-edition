@@ -30,9 +30,7 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit() {
     
-    this.productForm = this._formBuilder.group({
-      // initialize the form control with the initial value
-    });
+    this.productForm = this._formBuilder.group({});
     
     this.checkIsProductInCart()
     this.checkFieldsetDisabled();
@@ -65,14 +63,13 @@ export class ProductDetailComponent implements OnInit {
     console.log("checkFieldsetDisabled", this.isFieldsetDisabled)
     this.checkIsProductInCart()
     if (this.productIsInCart) {
-      this.isFieldsetDisabled = this.totalBookedQty > this.product.stock;
+      this.isFieldsetDisabled = this.totalBookedQty > this.product.stock && this.productIsInCart.quantity === this.product.stock;
       
     } else {
       this.isFieldsetDisabled = false;
     }
   }
   
-
   addToCart() {
     if (this.totalBookedQty > this.product.stock) {
       this.checkFieldsetDisabled();
@@ -81,7 +78,6 @@ export class ProductDetailComponent implements OnInit {
     }
 
     this._cartService.addToCart(this.product, this.quantity)
-    this.buttonText = "Added"
 
     this.checkFieldsetDisabled();
 

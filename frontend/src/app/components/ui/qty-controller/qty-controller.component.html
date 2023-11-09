@@ -13,7 +13,7 @@
         
         aria-label="Increase quantity" 
         (click)="increaseQty()"
-        [disabled]="stock === 0" 
+        [disabled]="stock <= 0" 
 
     > + </button>
 </div>

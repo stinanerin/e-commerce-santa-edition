@@ -7,6 +7,9 @@
 Grade:
 
 -   try to download and start project
--   update all products
--   loading state
 -   control all tests still pass
+-   error router link formgroup
+
+Not grade:
+
+-   loading state

@@ -29,7 +29,6 @@ export class ProductsService {
     if (environment.useApi) {
       return this._http.get<any>(this.baseUrl + "/products").pipe(
             map(response => {
-              console.log("response", response)
               if (response.statusCode === 200 && Array.isArray(response.data)) {
                 return response.data as Product[];
               } else {
@@ -52,7 +51,6 @@ export class ProductsService {
     if (environment.useApi) {
       return this._http.get<any>(this.baseUrl + `/products/${id}`).pipe(
         map(response => {
-          console.log("response", response)
           if (response.statusCode === 200  && response.data) {
             return response.data as Product;
           } else {
