@@ -8,14 +8,19 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
 export class QtyControllerComponent {
 
   @Input() quantity!: number;
+  @Input() stock!: number;
   @Output() quantityChange: EventEmitter<number> = new EventEmitter<number>();
 
 
   constructor() {}
 
   increaseQty() {
-    this.quantity++;
-    this.quantityChange.emit(this.quantity);
+    if (this.stock > 0) {
+
+      this.quantity++;
+      this.quantityChange.emit(this.quantity);
+
+    }
   }
 
   decreaseQty() {

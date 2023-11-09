@@ -81,10 +81,24 @@ export class CartService {
 
     if (cartJson) {
       const parsedCart = JSON.parse(cartJson);
-      parsedCart.items = parsedCart.items.map((item: any) => new CartItem(item.product, item.quantity));
+      parsedCart.items = parsedCart.items.map((item: any) =>  new CartItem(item.product, item._quantity));
+      
       return parsedCart;
     } else {
         return new Cart();    
     }
+  }
+
+  getCartItemById(id: number) {
+    const cartJson = localStorage.getItem("Cart")
+
+    if (cartJson) {
+        const parsedCart = JSON.parse(cartJson);
+        const cartItem = parsedCart.items.find((i: CartItem) => i.product.id === id)
+
+        if(!cartItem) return;
+        return  new CartItem(cartItem.product, cartItem._quantity)
+    }
+    return undefined
   }
 }

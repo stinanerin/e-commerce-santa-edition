@@ -10,20 +10,19 @@
         </header>         
 
         <form [formGroup]="productForm" (ngSubmit)="addToCart()" class="product-form" >
-            <fieldset [disabled]="!product.stock">
-
+            <fieldset [disabled]="productIsInCart && totalBookedQty >= product.stock || totalBookedQty > product.stock" >
             <div>
                 <app-qty-controller
-                    [(quantity)]="quantity"
+                    [quantity]="quantity"
+                    [stock]="(product.stock - totalBookedQty)"
+                    (quantityChange)="updateQuantity($event)"
+
                 ></app-qty-controller>
                 <p class="available-stock" [class]="!product.stock ? 'sold-out' : '' " >Available stock {{ product.stock }}</p>
             </div>
               <button type="submit" class="btn" >{{ buttonText }}</button>
             </fieldset>
         </form>
-
-        <!-- <p>Form value: {{ productForm.value | json }}</p> -->
-
         <div class="shipping">
             <h2 class="secondary-title">Shipping</h2>
 

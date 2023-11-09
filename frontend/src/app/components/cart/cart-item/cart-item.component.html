@@ -17,6 +17,7 @@
     <div class="cart-item-footer">
         <app-qty-controller 
             [quantity]="cartItem.quantity" 
+            [stock]="cartItem.product.stock" 
             (quantityChange)="updateCartQtyStorage($event)"
 
         ></app-qty-controller>
