@@ -2,8 +2,6 @@
 
 This is a basic Angular application with a Node.js / Express backend.
 
-The project structure includes two folders, frontend, and backend, containing the respective code for the front-end Angular application and the back-end Node.js Express server.
-
 ## Installation
 
 ### Frontend
