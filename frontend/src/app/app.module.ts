@@ -17,6 +17,7 @@ import { ProductDetailComponent } from './components/products/product-detail/pro
 import { CartItemComponent } from './components/cart/cart-item/cart-item.component';
 import { QtyControllerComponent } from './components/ui/qty-controller/qty-controller.component';
 import { CartSummaryComponent } from './components/cart/cart-summary/cart-summary.component';
+import { InfoPageComponent } from './pages/info-page/info-page.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CartSummaryComponent } from './components/cart/cart-summary/cart-summar
     ProductDetailComponent,
     CartItemComponent,
     QtyControllerComponent,
-    CartSummaryComponent
+    CartSummaryComponent,
+    InfoPageComponent
   ],
   imports: [
     CommonModule,
