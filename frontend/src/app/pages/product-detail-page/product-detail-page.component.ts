@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ApiResponseError } from 'src/app/models/error';
 import { Product } from 'src/app/models/product';
 import { ProductsService } from 'src/app/services/products/products.service';
 
@@ -10,6 +11,9 @@ import { ProductsService } from 'src/app/services/products/products.service';
 })
 export class ProductDetailPageComponent implements OnInit {
   product?: Product;
+  error: ApiResponseError | undefined = undefined;
+  isLoading: boolean = false;
+
 
   // Dependency injection
   constructor(
@@ -47,8 +51,17 @@ export class ProductDetailPageComponent implements OnInit {
     // Snapshot is on ActivatedRoute-component
     // "id" is the param in the url
     const productId = Number(this._route.snapshot.paramMap.get("id"))
+    this.isLoading = true; 
 
-    this._service.getProductById(productId).subscribe(productObj => this.product = productObj)
-  
+    this._service.getProductById(productId).subscribe({
+      next: (productObj) => {
+        this.product = productObj;
+        this.isLoading = false; 
+      },
+      error: (error) => {
+        this.error = error.error; 
+        this.isLoading = false; 
+      },
+    });  
   }
 }

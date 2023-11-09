@@ -26,15 +26,12 @@ const fetchData = async (id = null) => {
         response.status = "Success";
         response.statusCode = 200;
         response.data = product;
-
-        return response;
     } else {
         response.status = "Success";
         response.statusCode = 200;
         response.data = data;
-
-        return response;
     }
+    return response;
 };
 
 export default fetchData;

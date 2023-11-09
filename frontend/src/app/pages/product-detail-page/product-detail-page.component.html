@@ -1,8 +1,16 @@
 
-<app-not-found-page *ngIf="!product" CTA="Continue shopping" notFoundMessage="we were unable to find the product you were looking for." ></app-not-found-page>
+<ng-container *ngIf="isLoading; else dataSection">
+</ng-container>
 
-<section *ngIf="product">
 
-    <app-product-detail [product]="product"></app-product-detail>
+<ng-template #dataSection>
 
-</section>
+    <ng-container *ngIf="error; else productSection">
+      <app-not-found-page [statusCode]="error.statusCode" notFoundMessage="we were unable to find the product you were looking for"></app-not-found-page>
+    </ng-container>
+  
+    <ng-template #productSection>
+      <app-product-detail *ngIf="product" [product]="product"></app-product-detail>
+    </ng-template>
+    
+</ng-template>
