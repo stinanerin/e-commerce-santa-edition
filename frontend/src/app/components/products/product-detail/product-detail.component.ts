@@ -78,7 +78,6 @@ export class ProductDetailComponent implements OnInit {
     }
 
     this._cartService.addToCart(this.product, this.quantity)
-    this.buttonText = "Added"
 
     this.checkFieldsetDisabled();
 
