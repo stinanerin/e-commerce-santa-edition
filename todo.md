@@ -6,8 +6,6 @@
 
 Grade:
 
--   make stock visible in detial view - must be there for grade
--   testing angular??? unit testing tdd
 -   connect frontend to backend again
 -   try to download and start project
 -   error

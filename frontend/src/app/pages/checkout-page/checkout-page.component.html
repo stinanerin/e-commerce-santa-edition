@@ -5,14 +5,13 @@
 
     <div *ngIf="cart.items.length">
 
-        <header>
+        <header class="page-header">
             <h1>Cart</h1>
-            <p >{{ cart.totalItems }} items</p>
+            <p class="title" >{{ cart.totalItems }} items</p>
         </header>
 
         <ul>
             <app-cart-item *ngFor="let item of cart.items" [cartItem]="item"></app-cart-item>
-            
         </ul>
 
         <app-cart-summary [cart]="cart"></app-cart-summary>
