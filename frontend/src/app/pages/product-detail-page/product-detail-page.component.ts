@@ -27,10 +27,7 @@ export class ProductDetailPageComponent implements OnInit {
     // Router module in angular, used to retrieve state data passed when a user navigates from the product grid
     private _router: Router
 
-  ){
-    // No methods inside constructor -  not accessible from unit testing
-    console.log("route", _route.snapshot)
-  }
+  ) {}
 
   ngOnInit(): void {
 

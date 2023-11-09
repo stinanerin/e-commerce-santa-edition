@@ -72,7 +72,6 @@ export class ProductDetailComponent implements OnInit {
     }
   }
   
-
   addToCart() {
     if (this.totalBookedQty > this.product.stock) {
       this.checkFieldsetDisabled();
