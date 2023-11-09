@@ -62,14 +62,12 @@ export class ProductDetailComponent implements OnInit {
   }
 
   checkFieldsetDisabled() {
-    console.log("checkFieldsetDisabled")
+    console.log("checkFieldsetDisabled", this.isFieldsetDisabled)
     this.checkIsProductInCart()
     if (this.productIsInCart) {
-      console.log("productIsInCart")
-      this.isFieldsetDisabled = this.totalBookedQty >= this.product.stock;
+      this.isFieldsetDisabled = this.totalBookedQty > this.product.stock;
       
     } else {
-      console.log("else: false")
       this.isFieldsetDisabled = false;
     }
   }
@@ -77,6 +75,8 @@ export class ProductDetailComponent implements OnInit {
 
   addToCart() {
     if (this.totalBookedQty > this.product.stock) {
+      this.checkFieldsetDisabled();
+
       return;
     }
 
