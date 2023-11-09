@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiResponseError } from 'src/app/models/error';
 import { Product } from 'src/app/models/product';
 import { ProductsService } from 'src/app/services/products/products.service';
 
@@ -10,6 +11,8 @@ import { ProductsService } from 'src/app/services/products/products.service';
 export class ProductGalleryPageComponent implements OnInit{
 
   products: Product[] = [];
+  isLoading: boolean = false;
+  error: ApiResponseError | undefined = undefined;
 
   constructor(
     private _service: ProductsService,
@@ -20,7 +23,21 @@ export class ProductGalleryPageComponent implements OnInit{
   }
 
   getProducts() {
-    this._service.getAllProducts().subscribe(data => this.products = data)
+    this.isLoading = true
+
+    
+    this._service.getAllProducts().subscribe({
+      next: (data) =>  {
+        this.products = data
+        this.isLoading = false
+      },
+      error: (error) => {
+        console.log('Error:', this.error);
+
+        this.error = error.error
+        this.isLoading = false
+      }
+    })
     
   }
 

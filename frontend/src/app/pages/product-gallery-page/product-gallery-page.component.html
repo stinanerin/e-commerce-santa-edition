@@ -1,15 +1,31 @@
-<section class="product-listing">
 
-    <header class="gallery-header page-header" >
-        <h1>Browse our selection</h1>
-        <p *ngIf="products" class="title"> <span>{{ products.length }}</span> products</p>
-    </header>
+<ng-container *ngIf="error; else contentSection">
+    <app-not-found-page
+      CTA="Continue shopping"
+      notFoundMessage="We were unable to find the products you were looking for."
+    ></app-not-found-page>
+</ng-container>
 
-    <div *ngIf="products">
 
-    
-        <app-products-wrapper [products]="products"></app-products-wrapper>
+<ng-template #contentSection  >
+
+    <section class="product-listing" >
+
+        <header class="gallery-header page-header" >
+            <h1>Browse our selection</h1>
+            <p *ngIf="products" class="title"> <span>{{ products.length }}</span> products</p>
+        </header>
+
+        <div *ngIf="products; else skeleton">
         
-    </div>
+            <app-products-wrapper [products]="products"></app-products-wrapper>
+            
+        </div>
 
-</section>
+        <ng-template #skeleton>
+            
+        </ng-template>
+
+    </section>
+    
+</ng-template>
