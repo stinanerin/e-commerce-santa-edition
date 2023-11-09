@@ -54,12 +54,25 @@ header {
                     }
                 }
                 &.cart-link {
+                    position: relative;
                     color: $p-black;
                     &:focus-visible {
-
                         @include focusElement;
                     }
-                    
+                    .cart-count {
+                        // background-color: $grey-900;
+                        color: $p-black;
+                        width: 3.5ch;
+                        height: 3.5ch;
+                        line-height: 3.5ch;
+                        display: inline-block;
+                        border-radius: $radius-max;
+                        text-align: center;
+                        font-size: $size-body-xs;
+                        position: absolute;
+                        left: 50%;
+                        bottom: 50%;
+                    }
                 }
             }
         }

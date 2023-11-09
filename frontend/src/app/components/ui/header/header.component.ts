@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { CartService } from 'src/app/services/cart/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -10,6 +11,8 @@ export class HeaderComponent  {
 
   navbarFixed: boolean = true;
   prevScrollPos: number = 0;
+  cartQty: number = 0;
+
 
   @HostListener("window:scroll", ["$event"]) onScroll() {
     const currentScrollPos =  window.scrollY
@@ -22,7 +25,17 @@ export class HeaderComponent  {
   }
 
   constructor(
+    private _cartService: CartService,
+
   ){}
+
+   ngOnInit(): void {
+    this.getCartQty()
+  }
+
+  getCartQty() {
+    this._cartService.getCartObservable().subscribe(cart => this.cartQty = cart.totalItems)
+  }
 
 
 }
