@@ -6,10 +6,7 @@
 
 Grade:
 
--   connect frontend to backend again
 -   try to download and start project
 -   update all products
 -   loading state
--   error
-    error handlinga
 -   control all tests still pass
