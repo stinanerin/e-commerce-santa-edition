@@ -160,8 +160,10 @@ h1, h2, h3, h4, h5, h6, .title, .secondary-title  {
 }
 
 .error-message {
-    border: 1px solid $danger-500;
+    margin-top: $spacing-m;
     color: $danger-500;
-    padding: $spacing-s;
     background-color: $danger-50;
+
+    padding: calc($spacing-s - 1px) $spacing-s;
+    outline: 1px solid $danger-500;
 }

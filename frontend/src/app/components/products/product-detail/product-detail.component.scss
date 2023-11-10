@@ -68,18 +68,18 @@
             // background-color: rgba(255, 192, 203, 0.277);
             display: flex;
             flex-direction: column;
-            gap: $spacing-grid * 2;
+            gap: $spacing-grid;
 
             height: fit-content;
             max-width: 100%;
 
             font-weight: 200;
             text-transform: uppercase;
-            margin-bottom: $spacing-xl;
             
             @media($sm) {
                 flex-direction: row;
                 align-items: center;
+                gap: $spacing-grid * 2;
             }
 
             > * {
@@ -101,10 +101,12 @@
         }
         fieldset {
             all: unset;
+            margin-bottom: $spacing-xl;
 
             &:disabled {
                 opacity: 0.5 !important;
             }
+
         }
         
     }
