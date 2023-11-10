@@ -27,17 +27,8 @@ export class ProductsService {
 
   getAllProducts(): Observable<Product[]> {
     if (environment.useApi) {
-      return this._http.get<any>(this.baseUrl + "/products").pipe(
-            map(response => {
-              if (response.statusCode === 200 && Array.isArray(response.data)) {
-                return response.data as Product[];
-              } else {
-                throw new Error("Invalid response format");
-              }
-            }),
-            catchError(this._handleError)
+      return this._fetchApiData<Product[]>(`/products`);
 
-          );
     } else {
       // Using 'of' creates an observable of the mock product data
       return of(PRODUCTS)
@@ -47,16 +38,8 @@ export class ProductsService {
   getProductById(id: number): Observable<Product> {
 
     if (environment.useApi) {
-      return this._http.get<any>(this.baseUrl + `/products/${id}`).pipe(
-        map(response => {
-          if (response.statusCode === 200  && response.data) {
-            return response.data as Product;
-          } else {
-            throw new Error("Invalid response format");
-          }
-        }), 
-        catchError(this._handleError)
-      );
+      return this._fetchApiData<Product>(`/products/${id}`);
+
     } else {
       const product = PRODUCTS.find((p: Product) => p.id === id)
       if(!product) throw new Error(`Product with id: ${id} not found`)
@@ -68,5 +51,19 @@ export class ProductsService {
   private _handleError(error: any) {
     console.error('An error occurred:', error);
     return throwError(() => error);
+  }
+
+  // Using generics:)
+  private _fetchApiData<T>(path: string): Observable<T> {
+    return this._http.get<any>(this.baseUrl + path).pipe(
+      map(response => {
+        if (response.statusCode === 200) {
+          return response.data;
+        } else {
+          throw new Error("Invalid response format");
+        }
+      }),
+      catchError(this._handleError)
+    );
   }
 }
