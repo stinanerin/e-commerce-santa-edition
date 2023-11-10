@@ -43,10 +43,7 @@ import { InfoPageComponent } from './pages/info-page/info-page.component';
     CommonModule,
     BrowserModule,
     HttpClientModule,
-    FormsModule
-  ],
-  exports: [
-    CommonModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

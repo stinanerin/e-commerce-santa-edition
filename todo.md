@@ -8,7 +8,6 @@ Grade:
 
 -   try to download and start project
 -   control all tests still pass
--   error router link formgroup
 
 Not grade:
 
