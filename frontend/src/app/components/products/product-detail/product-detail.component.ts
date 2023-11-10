@@ -17,6 +17,7 @@ export class ProductDetailComponent implements OnInit {
   
   quantity: number = 1;
   buttonText: string = 'Add to cart';
+  errorMessage: string = '';
   isFieldsetDisabled: boolean = false;
   private _productIsInCart: CartItem | undefined;
 
@@ -27,8 +28,8 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit() {
         
-    this.checkIsProductInCart()
-    this.checkFieldsetDisabled();
+    this._checkIsProductInCart()
+    this._checkFieldsetDisabled();
 
   }
 
@@ -50,13 +51,12 @@ export class ProductDetailComponent implements OnInit {
     this._productIsInCart = cartItem;
   }
 
-  checkIsProductInCart() {
+  private _checkIsProductInCart() {
     this.productIsInCart = this._cartService.getCartItemById(this.product.id);
   }
 
-  checkFieldsetDisabled() {
-    console.log("checkFieldsetDisabled", this.isFieldsetDisabled)
-    this.checkIsProductInCart()
+  private _checkFieldsetDisabled() {
+    this._checkIsProductInCart()
     if (this.productIsInCart) {
       this.isFieldsetDisabled = this.totalBookedQty > this.product.stock && this.productIsInCart.quantity === this.product.stock;
       
@@ -68,14 +68,16 @@ export class ProductDetailComponent implements OnInit {
   addToCart() {
 
     if (this.totalBookedQty > this.product.stock) {
-      this.checkFieldsetDisabled();
-
+      this._checkFieldsetDisabled();
+      this.errorMessage = 'Product quantity exceeds stock. Unable to add to cart.';
       return;
     }
 
     this._cartService.addToCart(this.product, this.quantity)
 
-    this.checkFieldsetDisabled();
+    this._checkFieldsetDisabled();
+    this.errorMessage = ''; 
+
 
   }
 

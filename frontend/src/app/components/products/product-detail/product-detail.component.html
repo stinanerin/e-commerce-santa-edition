@@ -11,16 +11,20 @@
 
         <form (ngSubmit)="addToCart()" class="product-form" >
             <fieldset [disabled]="isFieldsetDisabled" >
-            <div>
-                <app-qty-controller
-                    [quantity]="quantity"
-                    [stock]="(product.stock - totalBookedQty)"
-                    (quantityChange)="updateQuantity($event)"
-
-                ></app-qty-controller>
-                <p class="available-stock" [class]="!product.stock ? 'sold-out' : '' " >Available stock {{ product.stock }}</p>
-            </div>
-              <button type="submit" class="btn" >{{ buttonText }}</button>
+                <div class="product-form">
+                    <div>
+                        <app-qty-controller
+                            [quantity]="quantity"
+                            [stock]="(product.stock - totalBookedQty)"
+                            (quantityChange)="updateQuantity($event)"
+                        ></app-qty-controller>
+                        <p class="available-stock" [class]="!product.stock ? 'sold-out' : '' " >Available stock {{ product.stock }}</p>
+                    </div>
+                    <button type="submit" class="btn" >{{ buttonText }}</button>
+                </div>
+                <div *ngIf="errorMessage && (product.stock - totalBookedQty) < 0 " class="error-message">
+                    {{ errorMessage }}
+                </div>
             </fieldset>
         </form>
         <div class="shipping">

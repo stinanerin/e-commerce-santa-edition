@@ -158,3 +158,10 @@ h1, h2, h3, h4, h5, h6, .title, .secondary-title  {
     @include focusElement($danger-500, $danger-50)
   }
 }
+
+.error-message {
+    border: 1px solid $danger-500;
+    color: $danger-500;
+    padding: $spacing-s;
+    background-color: $danger-50;
+}
