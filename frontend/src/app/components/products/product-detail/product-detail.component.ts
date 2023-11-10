@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup} from '@angular/forms';
 import { CartItem } from 'src/app/models/cartItem';
 
 import { Product } from 'src/app/models/product';
@@ -16,7 +15,6 @@ export class ProductDetailComponent implements OnInit {
   
   @Input() product!: Product;
   
-  productForm!: FormGroup;
   quantity: number = 1;
   buttonText: string = 'Add to cart';
   isFieldsetDisabled: boolean = false;
@@ -24,14 +22,11 @@ export class ProductDetailComponent implements OnInit {
 
   
   constructor(
-      private _formBuilder: FormBuilder,   
       private _cartService: CartService, 
   ) {}
 
   ngOnInit() {
-    
-    this.productForm = this._formBuilder.group({});
-    
+        
     this.checkIsProductInCart()
     this.checkFieldsetDisabled();
 
@@ -71,6 +66,7 @@ export class ProductDetailComponent implements OnInit {
   }
   
   addToCart() {
+
     if (this.totalBookedQty > this.product.stock) {
       this.checkFieldsetDisabled();
 

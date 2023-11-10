@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './routing/app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,11 +38,15 @@ import { InfoPageComponent } from './pages/info-page/info-page.component';
     InfoPageComponent
   ],
   imports: [
-    CommonModule,
-    ReactiveFormsModule, 
-    BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    RouterModule,
+    CommonModule,
+    BrowserModule,
+    HttpClientModule,
+    FormsModule
+  ],
+  exports: [
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
