@@ -1,4 +1,5 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartItem } from 'src/app/models/cartItem';
 import { CartService } from 'src/app/services/cart/cart.service';
 
@@ -15,6 +16,7 @@ export class CartItemComponent {
 
   constructor(
     private _cartService: CartService,
+    private _router: Router
   ) {}
 
   updateCartQtyStorage(newQuantity: number): void {
@@ -31,6 +33,12 @@ export class CartItemComponent {
 
   removeCartItem() {
     this._cartService.removeFromCart(this.cartItem.product.id)
+  }
+
+  navigateToProductDetail(id: number) {
+
+    this._router.navigate(["/products/", + id])
+
   }
 
 }

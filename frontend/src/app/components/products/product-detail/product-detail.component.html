@@ -9,7 +9,7 @@
             <p class="price ">{{ product.price }} USD</p>
         </header>         
 
-        <form [formGroup]="productForm" (ngSubmit)="addToCart()" class="product-form" >
+        <form (ngSubmit)="addToCart()" class="product-form" >
             <fieldset [disabled]="isFieldsetDisabled" >
             <div>
                 <app-qty-controller

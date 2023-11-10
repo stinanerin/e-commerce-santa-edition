@@ -23,8 +23,9 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            a {
+            .link {
                 text-transform: uppercase;
+                width: fit-content;
             }
         }
         .cart-item-price {

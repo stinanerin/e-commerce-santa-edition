@@ -5,9 +5,9 @@
                 <img src="/assets/images/{{cartItem.product.image}}" [alt]="cartItem.product.name">
             </div>
             <div class="cart-item-title">
-                <p>
-                    <a class="link" routerLink="/products/{{cartItem.product.id}}" >{{ cartItem.product.name }}</a>
-                </p>
+                <span role="link" class=" link" (click)="navigateToProductDetail(cartItem.product.id)">
+                  {{ cartItem.product.name }}
+                </span>
             </div>
             <div class="cart-item-price">
 
