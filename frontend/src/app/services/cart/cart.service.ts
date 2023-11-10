@@ -103,7 +103,7 @@ export class CartService {
         const cartItem = parsedCart.items.find((i: CartItem) => i.product.id === id)
 
         if(!cartItem) return;
-        return  new CartItem(cartItem.product, cartItem._quantity)
+        return  new CartItem(cartItem.product, cartItem.quantity)
     }
     return undefined
   }
