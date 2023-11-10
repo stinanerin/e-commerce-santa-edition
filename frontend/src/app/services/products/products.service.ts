@@ -35,10 +35,8 @@ export class ProductsService {
                 throw new Error("Invalid response format");
               }
             }),
-            catchError(error => {
-              console.error('An error occurred:', error);
-              return throwError(() =>error);
-            })
+            catchError(this._handleError)
+
           );
     } else {
       // Using 'of' creates an observable of the mock product data
@@ -57,10 +55,7 @@ export class ProductsService {
             throw new Error("Invalid response format");
           }
         }), 
-        catchError(error => {
-          console.error('An error occurred:', error);
-          return throwError(() =>error);
-        })
+        catchError(this._handleError)
       );
     } else {
       const product = PRODUCTS.find((p: Product) => p.id === id)
@@ -68,5 +63,10 @@ export class ProductsService {
       // Using 'of' creates an observable of the mock product data
       return of(product)
     }
+  }
+
+  private _handleError(error: any) {
+    console.error('An error occurred:', error);
+    return throwError(() => error);
   }
 }
