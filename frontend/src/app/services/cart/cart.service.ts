@@ -11,7 +11,7 @@ import { CartItem } from 'src/app/models/cartItem';
 
 export class CartService {
 
-  private cart: Cart = this.getCartFromLocalStorage()
+  private cart: Cart = this._getCartFromLocalStorage()
   // BehaviorSubject: acts as a single store to hold updated shared data
   private cartSubject: BehaviorSubject<Cart> = new BehaviorSubject(this.cart)
   
@@ -36,7 +36,7 @@ export class CartService {
       this.cart.items.push(newCartItem)
     }
 
-    this.setCartToLocalStorage()
+    this._setCartToLocalStorage()
 
   }
 
@@ -48,12 +48,10 @@ export class CartService {
     if(qty) cartItem.quantity += qty
     cartItem.updateTotalPrice()
 
-    this.setCartToLocalStorage()
+    this._setCartToLocalStorage()
   }
 
-  // private: The method is not accessible otuside of the class
-  // i.e: we only use it inside
-  private setCartToLocalStorage(): void {
+  private _setCartToLocalStorage(): void {
 
     // Reduce loops through array
     // the function passed to reduce will be called for each item
@@ -75,9 +73,7 @@ export class CartService {
 
   }
 
-  // private: The method is no accessible otuside of the class
-    // i.e: we only use it inside
-  private getCartFromLocalStorage():Cart {
+  private _getCartFromLocalStorage():Cart {
     const cartJson = localStorage.getItem("Cart")
 
     if (cartJson) {
@@ -91,23 +87,23 @@ export class CartService {
   }
 
   removeFromCart(id: number): void {
-    this.cart = this.getCartFromLocalStorage()
+    this.cart = this._getCartFromLocalStorage()
 
     this.cart.items = this.cart.items
       .filter(item => item.product.id != id);
 
-    this.setCartToLocalStorage();
+    this._setCartToLocalStorage();
   }
 
   getCartItemById(id: number) {
-    const cartJson = localStorage.getItem("Cart")
 
-    if (cartJson) {
-        const parsedCart = JSON.parse(cartJson);
+    const parsedCart = this._getCartFromLocalStorage()
+
+    if (parsedCart) {
         const cartItem = parsedCart.items.find((i: CartItem) => i.product.id === id)
 
         if(!cartItem) return;
-        return  new CartItem(cartItem.product, cartItem._quantity)
+        return  new CartItem(cartItem.product, cartItem.quantity)
     }
     return undefined
   }
