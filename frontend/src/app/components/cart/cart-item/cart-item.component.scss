@@ -8,6 +8,7 @@
     gap: $spacing-grid;
     flex-direction: column;
     margin-bottom: $spacing-l;
+
     .cart-item-content {
         display: flex;
         gap: $spacing-grid;
@@ -21,21 +22,23 @@
         }
         .cart-item-title {
             width: 100%;
+            background-color: pink;
             display: flex;
-            flex-direction: column;
             .link {
                 text-transform: uppercase;
                 width: fit-content;
             }
         }
         .cart-item-price {
+            background-color: rgb(192, 248, 255);
+
             min-width: max-content;
             text-transform: uppercase;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: flex-end;
-            * {
+            p {
                 min-width: max-content;
             }
         }
