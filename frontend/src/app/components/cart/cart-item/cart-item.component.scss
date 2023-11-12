@@ -22,7 +22,6 @@
         }
         .cart-item-title {
             width: 100%;
-            background-color: pink;
             display: flex;
             .link {
                 text-transform: uppercase;
@@ -30,8 +29,6 @@
             }
         }
         .cart-item-price {
-            background-color: rgb(192, 248, 255);
-
             min-width: max-content;
             text-transform: uppercase;
             display: flex;
